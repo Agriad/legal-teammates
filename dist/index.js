@@ -6069,6 +6069,12 @@ function main() {
 
         const parsedTitle = parseTitle(payload);
 
+        if (parsedTitle) {
+            console.log("title contains Teammate request:");
+        } else {
+            console.log("wrong title");
+        }
+
         console.log(`It is working`);
        
     } catch (error) {
