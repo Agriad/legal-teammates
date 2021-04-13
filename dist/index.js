@@ -6044,6 +6044,16 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(619);
 const github = __nccwpck_require__(637);
 
+function parseTitle(payload) {
+    const title = payload.issue.title;
+
+    if (title.includes("Teammate request:")) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function main() {
     try {
         const githubSecret = core.getInput("github-token");
@@ -6056,6 +6066,8 @@ function main() {
             );
             return;
         }
+
+        const parsedTitle = parseTitle(payload);
 
         console.log(`It is working`);
        
