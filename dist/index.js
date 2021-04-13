@@ -6082,6 +6082,10 @@ async function main() {
         const owner = repositoryData[0];
         const repo = repositoryData[1];
 
+        console.log("owner " + owner);
+        console.log("repo " + repo);
+        console.log("issue number " + issueNumber);
+
         await octokit.issues.update({
             owner: owner,
             repo: repo,
