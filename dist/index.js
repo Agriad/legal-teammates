@@ -6063,7 +6063,7 @@ function parseTitle(payload) {
     }
 }
 
-function main() {
+async function main() {
     try {
         const githubSecret = core.getInput("github-token");
         const context = github.context;
@@ -6091,7 +6091,7 @@ function main() {
         const owner = repositoryData[0];
         const repo = repositoryData[1];
 
-        closeIssue(octokit, owner, repo, issueNumber);
+        await closeIssue(octokit, owner, repo, issueNumber);
 
         console.log(`It is working`);
        
