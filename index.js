@@ -12,7 +12,9 @@ function main() {
               "This event is not an issue being opened"
             );
             return;
-          }
+        }
+
+        console.log(`It is working`);
        
     } catch (error) {
         core.setFailed(error.message);

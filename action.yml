@@ -9,4 +9,4 @@ outputs:
     description: 'A comment with a list of legal teammates'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
