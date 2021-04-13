@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-function closeIssue(octokit, issueNumber) {
+function closeIssue(octokit, owner, repo, issueNumber) {
     octokit.issues.update({
         owner: owner,
         repo: repo,
@@ -43,8 +43,12 @@ function main() {
 
         const octokit = github.getOctokit(githubSecret);
         const issueNumber = core.getInput("issue-number");
+        const repository = core.getInput('repository');
+        const repositoryData = repository.split('/');
+        const owner = repositoryData[0];
+        const repo = repositoryData[1];
 
-        closeIssue(octokit, issueNumber);
+        closeIssue(octokit, owner, repo, issueNumber);
 
         console.log(`It is working`);
        
