@@ -1,6 +1,15 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+function closeIssue(octokit, issueNumber) {
+    octokit.issues.update({
+        owner: owner,
+        repo: repo,
+        issue_number: issueNumber,
+        state: 'closed'
+    });
+}
+
 function parseTitle(payload) {
     const title = payload.issue.title;
 
@@ -31,6 +40,11 @@ function main() {
         } else {
             console.log("wrong title");
         }
+
+        const octokit = github.getOctokit(githubSecret);
+        const issueNumber = core.getInput("issue-number");
+
+        closeIssue(octokit, issueNumber);
 
         console.log(`It is working`);
        
