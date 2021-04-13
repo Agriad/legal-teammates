@@ -1,15 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-function closeIssue(octokit, owner, repo, issueNumber) {
-    octokit.issues.update({
-        owner: owner,
-        repo: repo,
-        issue_number: issueNumber,
-        state: 'closed'
-    });
-}
-
 function parseTitle(payload) {
     const title = payload.issue.title;
 
@@ -48,7 +39,12 @@ async function main() {
         const owner = repositoryData[0];
         const repo = repositoryData[1];
 
-        await closeIssue(octokit, owner, repo, issueNumber);
+        await octokit.issues.update({
+            owner: owner,
+            repo: repo,
+            issue_number: issueNumber,
+            state: 'closed'
+        });
 
         console.log(`It is working`);
        
