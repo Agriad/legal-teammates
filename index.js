@@ -2,16 +2,24 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { Context } = require('@actions/github/lib/context');
 
+/**
+ * Parses the title
+ * @param  {Object} payload Payload containing the title
+ * @return {String}         String containing the requester's email
+ */
 function parseTitle(payload) {
     const title = payload.issue.title;
 
     if (title.includes("Teammate request:")) {
-        return true;
+        return "a";
     } else {
-        return false;
+        return "";
     }
 }
 
+/**
+ * The main function for finding legal teammates
+ */
 async function main() {
     try {
         const githubSecret = core.getInput("github-token");
@@ -19,6 +27,7 @@ async function main() {
         const payload = context.payload;
         const { issue } = github.context;
     
+        // Checks if the triggering action is caused by an issue
         if (!payload.issue) {
             core.debug(
               "This event is not an issue being opened"
@@ -28,21 +37,15 @@ async function main() {
 
         const parsedTitle = parseTitle(payload);
 
-        if (parsedTitle) {
+        if (parsedTitle != "") {
             console.log("title contains Teammate request:");
         } else {
             console.log("wrong title");
         }
 
         const octokit = github.getOctokit(githubSecret);
-        const issueNumber = core.getInput("issue-number");
-        const repository = core.getInput('repository');
-        const repositoryData = repository.split('/');
-        const owner = repositoryData[0];
-        const repo = repositoryData[1];
 
-        console.log(context);
-
+        // Closes the issue
         await octokit.issues.update({
             owner: issue.owner,
             repo: issue.repo,
