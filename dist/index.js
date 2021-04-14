@@ -6088,12 +6088,22 @@ async function main() {
 
         const octokit = github.getOctokit(githubSecret);
 
+        // Add closing message
+        await client.issues.createComment({
+            owner: issue.owner,
+            repo: issue.repo,
+            issue_number: issue.number,
+            body: "Good luck with your project!\n" +
+            "If you would like to search for more potential teammates, " +
+            "please create a new issue with the template title \"Teammate request: your-kth-email@kth.se\"."
+        });
+
         // Closes the issue
         await octokit.issues.update({
             owner: issue.owner,
             repo: issue.repo,
             issue_number: issue.number,
-            state: 'closed'
+            state: "closed"
         });
 
         console.log(`It is working`);
