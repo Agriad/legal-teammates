@@ -6082,8 +6082,13 @@ async function main() {
         const owner = repositoryData[0];
         const repo = repositoryData[1];
 
+        console.log("payload");
         console.log(payload);
+        console.log("payload issue");
         console.log(payload.issue);
+        const { issue } = github.context;
+        console.log("issue");
+        console.log(issue);
         console.log("owner " + payload.owner);
         console.log("repo " + payload.repository);
         console.log("issue number " + payload.issue.number);
