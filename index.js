@@ -46,7 +46,7 @@ async function main() {
         const octokit = github.getOctokit(githubSecret);
 
         // Add closing message
-        await client.issues.createComment({
+        await octokit.issues.createComment({
             owner: issue.owner,
             repo: issue.repo,
             issue_number: issue.number,
