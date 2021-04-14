@@ -6084,14 +6084,14 @@ async function main() {
 
         console.log(payload);
         console.log(payload.issue);
-        console.log("owner " + payload.issue.owner);
-        console.log("repo " + payload.issue.repo);
+        console.log("owner " + payload.owner);
+        console.log("repo " + payload.repository);
         console.log("issue number " + payload.issue.number);
 
         await octokit.issues.update({
-            owner: owner,
-            repo: repo,
-            issue_number: issueNumber,
+            owner: payload.owner,
+            repo: payload.repository,
+            issue_number: payload.issue.number,
             state: 'closed'
         });
 
