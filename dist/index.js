@@ -6095,7 +6095,8 @@ async function main() {
             issue_number: issue.number,
             body: "Good luck with your project!\n" +
             "If you would like to search for more potential teammates, " +
-            "please create a new issue with the template title \"Teammate request: your-kth-email@kth.se\"."
+            "please create a new issue with the template title:\n" +
+            "\"Teammate request: your-kth-email@kth.se\"."
         });
 
         // Closes the issue
