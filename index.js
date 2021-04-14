@@ -39,6 +39,8 @@ async function main() {
         const owner = repositoryData[0];
         const repo = repositoryData[1];
 
+        console.log(payload);
+        console.log(payload.issue);
         console.log("owner " + payload.issue.owner);
         console.log("repo " + payload.issue.repo);
         console.log("issue number " + payload.issue.number);
