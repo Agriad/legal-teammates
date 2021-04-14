@@ -6043,6 +6043,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(127);
 const github = __nccwpck_require__(134);
+const { Context } = __nccwpck_require__(210);
 
 function parseTitle(payload) {
     const title = payload.issue.title;
@@ -6059,6 +6060,7 @@ async function main() {
         const githubSecret = core.getInput("github-token");
         const context = github.context;
         const payload = context.payload;
+        const { issue } = github.context;
     
         if (!payload.issue) {
             core.debug(
@@ -6082,21 +6084,12 @@ async function main() {
         const owner = repositoryData[0];
         const repo = repositoryData[1];
 
-        console.log("payload");
-        console.log(payload);
-        console.log("payload issue");
-        console.log(payload.issue);
-        const { issue } = github.context;
-        console.log("issue");
-        console.log(issue);
-        console.log("owner " + payload.owner);
-        console.log("repo " + payload.repository);
-        console.log("issue number " + payload.issue.number);
+        console.log(context);
 
         await octokit.issues.update({
-            owner: payload.owner,
-            repo: payload.repository,
-            issue_number: payload.issue.number,
+            owner: issue.owner,
+            repo: issue.repo,
+            issue_number: issue.number,
             state: 'closed'
         });
 
