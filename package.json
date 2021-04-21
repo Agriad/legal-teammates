@@ -1,7 +1,7 @@
 {
   "name": "legal-teammates",
   "version": "1.0.0",
-  "description": "",
+  "description": "This repository contains the material and content of the DevOps course at KTH Royal Institute of Technology",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Agriad/legal-teammates#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0"
-  }
+    "@actions/github": "^4.0.0",
+    "atob": "^2.1.2"
+  },
+  "devDependencies": {}
 }
