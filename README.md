@@ -24,13 +24,13 @@ The suggested legal teammates follow the following criteria:
 
 The resulting issue comment has the following structure:
 
-Legal Teammates: example@kth.se example@kth.se
-course-automation: example@kth.se example@kth.se
-demo: example@kth.se example@kth.se example@kth.se
-essay: example@kth.se example@kth.se example@kth.se
-executable-tutorial: example@kth.se example@kth.se
-feedback:  example@kth.se example@kth.se 
-open-source:  example@kth.se example@kth.se
-presentation:  example@kth.se example@kth.se
+Legal Teammates: example@kth.se example@kth.se  
+course-automation: example@kth.se example@kth.se  
+demo: example@kth.se example@kth.se example@kth.se  
+essay: example@kth.se example@kth.se example@kth.se  
+executable-tutorial: example@kth.se example@kth.se  
+feedback:  example@kth.se example@kth.se  
+open-source:  example@kth.se example@kth.se  
+presentation:  example@kth.se example@kth.se  
 
 A fork of the DD2482 course branch containing example runs of our code can be found here (https://github.com/Agriad/devops-course/tree/demo)
