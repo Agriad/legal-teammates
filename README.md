@@ -1,13 +1,36 @@
-# legal-teammates
+# Course Automation: Suggesting legal teammates for projects
+ 
+## Members
+- [Carina Wickström](https://github.com/carinawic) (carinawi@kth.se)
+- [Justin](https://github.com/Agriad) (arieltan@kth.se)
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+## Proposal
+This code is a github actions to facilitate finding teammates for students in the DevOps KTH course DD2482.
 
-## Inputs
+How to use:
 
-### `who-to-greet`
+In the DevOps course repo (https://github.com/KTH/devops-course)
+The student opens an issue with the title: "Looking for a teammate: my-name@kth.se"
+Thereafter, a comment will appear on that issue with a list of all legal teammates in each work category.
 
-**Required** The name of the person to greet. Default `"World"`.
+The process takes approximately 30 seconds.
 
-## Outputs
+When the student searching for a legal teammate, a list will be given of students' email addresses. 
+The suggested legal teammates follow the following criteria:
 
-## Example usage
+- The potential teammate has posted < 4 project proposals.
+- The students and the potential teammate have not worked in the same group twice (or more).
+- The potential teammate has not yet proposed a project in that category.
+
+The resulting issue comment has the following structure:
+
+Legal Teammates: example@kth.se example@kth.se
+course-automation: example@kth.se example@kth.se
+demo: example@kth.se example@kth.se example@kth.se
+essay: example@kth.se example@kth.se example@kth.se
+executable-tutorial: example@kth.se example@kth.se
+feedback:  example@kth.se example@kth.se 
+open-source:  example@kth.se example@kth.se
+presentation:  example@kth.se example@kth.se
+
+A fork of the DD2482 course branch containing example runs of our code can be found here (https://github.com/Agriad/devops-course/tree/demo)
